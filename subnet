@@ -1,0 +1,32 @@
+# PUBLIC SUBNET
+resource "aws_subnet" "public-subnet-1" {
+  vpc_id     = aws_vpc.r-vpc.id
+  map_public_ip_on_launch = true
+  cidr_block = "10.0.1.0/24"
+
+  tags = {
+    Name = "public-subnet-1"
+  }
+}
+
+#PRIVATE SUBNETS
+resource "aws_subnet" "private-subnet-1" {
+  vpc_id     = aws_vpc.r-vpc.id
+  map_public_ip_on_launch = false
+  cidr_block = "10.0.2.0/24"
+
+  tags = {
+    Name = "private-subent-1"
+  }
+}
+
+resource "aws_subnet" "private-subnet-2" {
+  vpc_id     = aws_vpc.r-vpc.id
+  map_public_ip_on_launch = false
+  cidr_block = "10.0.3.0/24"
+
+  tags = {
+    Name = "private-subnet-2"
+  }
+}
+
